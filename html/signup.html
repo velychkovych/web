@@ -3,32 +3,34 @@
 <head>
     <meta charset="utf-8">
     <title>Sign up</title>
-    <link rel="stylesheet" href="../css/signup.css">
+    <link rel="stylesheet" href="../css/forms.css">
 </head>
 <body>
 
-<div id="div_top_hypers">
-    <ul id="ul_top_hypers">
+<div class="div_top_hypers">
+    <ul class="ul_top_hypers">
         <li><a href="articles.html">Articles</a></li>
         <li><a href="user.html">User</a></li>
         <li><a href="login.html">Log in</a></li>
     </ul>
 </div>
 
-<div class="signup">
-    <div class="signup">
+<div class="log">
+    <div class="header-register">
         <h1>Registration</h1>
     </div>
-    <div>
-        <label>
-            <input type="text" name="" placeholder="Username" required="required" pattern="[A-Za-z0-9]{1,20}"><br>
-            <input type="password" name="" placeholder="Password" required="required" pattern="[A-Za-z0-9]{1,20}"><br>
-            <input type="password" name="" placeholder="Confirm password" required="required" pattern="[A-Za-z0-9]{1,20}"><br>
-        </label><br>
-        <a href="articles.html">Submit</a>
-        <a href="login.html">Log in</a>
-    </div>
 
+    <label for="username"></label>
+    <input class="input-field" type="text" id="username" placeholder="Username" required="required" pattern="[A-Za-z0-9]{1,20}"><br>
+    <label for="password"></label>
+    <input class="input-field" type="password" id="password" placeholder="Password" required="required" pattern="[A-Za-z0-9]{1,20}"><br>
+    <label for="confirm"></label>
+    <input class="input-field" type="password" id="confirm" placeholder="Confirm password" required="required"
+           pattern="[A-Za-z0-9]{1,20}"><br>
+    <label for="submit-button"></label>
+    <input class="input-button" type="submit" id="submit-button">
+    <a class="reference" href="login.html">Login</a>
 </div>
+
 </body>
 </html>
