@@ -3,26 +3,40 @@
 <head>
     <meta charset="utf-8">
     <title>Edit article</title>
-    <link rel="stylesheet" href="../css/forms.css">
+    <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
 
-<div class="div_top_hypers">
-    <ul class="ul_top_hypers">
-        <li><a href="articles.html">Articles</a></li>
-        <li><a href="user.html">User</a></li>
-        <li><a href="login.html">Log in</a></li>
+<div class="navigation-bar">
+    <ul class="navigation-bar-list">
+        <li class="navigation-bar-list-member"><a class="navigation-btn" href="login.html">Login</a></li>
+        <li class="navigation-bar-list-member"><a class="navigation-btn" href="signup.html">Sign up</a></li>
+        <li class="navigation-bar-list-member"><a class="navigation-btn" href="articles.html">Home</a></li>
     </ul>
 </div>
 
-<h1 class="header-of-page">Edit article</h1>
+<section class="block" id="block">
+    <div class="head">
+        <h1 class="company">Articles</h1>
+    </div>
 
-<div class="edit-article">
-    <label for="input-text">Text of article:</label><br>
-    <textarea class="change-text" id="input-text" placeholder="Text of article"
-              rows="4" cols="50" maxlength="2000">The text of blog.</textarea><br>
-    <label for="submit">Author: Steve Jobs</label><br>
-    <button type="submit" id="submit" class="reference-for-edit-article">Submit</button>
-</div>
+    <div class="form">
+        <div class="article">
+            <h1>Header</h1>
+            <p class="author">Author: Steve Jobs</p>
+            <label for="input-text">Text of article:</label>
+            <br>
+            <textarea class="change-text" id="input-text" placeholder="Text of article"
+                      rows="4" cols="50" maxlength="2000">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
+                scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap
+                into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the
+                release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing
+                software like Aldus PageMaker including versions of Lorem Ipsum.</textarea>
+            <br>
+            <a class="btn-login" href="articles.html">Confirm</a>
+        </div>
+    </div>
+</section>
 </body>
 </html>

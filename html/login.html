@@ -3,35 +3,34 @@
 <head>
     <meta charset="utf-8">
     <title>Login</title>
-    <link rel="stylesheet" href="../css/forms.css">
+    <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
 
-<div class="div_top_hypers">
-    <ul class="ul_top_hypers">
-        <li><a href="articles.html">Articles</a></li>
-        <li><a href="user.html">User</a></li>
-        <li><a href="login.html">Log in</a></li>
+<div class="navigation-bar">
+    <ul class="navigation-bar-list">
+        <li class="navigation-bar-list-member"><a class="navigation-btn" href="login.html">Login</a></li>
+        <li class="navigation-bar-list-member"><a class="navigation-btn" href="signup.html">Sign up</a></li>
+        <li class="navigation-bar-list-member"><a class="navigation-btn" href="articles.html">Home</a></li>
     </ul>
 </div>
 
-<div class="log">
-
-    <div class="header-login">
-        <h1>Login</h1>
+<section class="block" id="block">
+    <div class="head">
+        <h1 class="company">Simple article service</h1>
     </div>
-    <form>
-        <label for="login"></label><br>
-        <input class="input-field" type="text" id="login" placeholder="Username" required="required"
-               pattern="[A-Za-z0-9]{1,20}">
-        <label for="password"></label><br>
-        <input class="input-field" type="password" id="password" placeholder="Password" required="required"
-               pattern="[A-Za-z0-9]{1,20}">
-        <label for="submit-button"></label><br>
-        <input class="input-button" type="submit" id="submit-button">
-        <a class="reference" href="signup.html">Sign up</a>
-    </form>
-
-</div>
+    <div class="form">
+        <form>
+            <label for="username"></label>
+            <input type="text" placeholder="Username" class="input" id="username" required>
+            <br>
+            <label for="password"></label>
+            <input type="password" placeholder="********" class="input" id="password" required>
+            <br>
+            <a href="#" class="btn-login" id="do-login">Login</a>
+            <a href="signup.html" class="btn-signup">Signup</a>
+        </form>
+    </div>
+</section>
 </body>
 </html>
