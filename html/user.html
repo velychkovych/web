@@ -3,37 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <title>Current user</title>
-    <link rel="stylesheet" href="../css/forms.css">
+    <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
 
-<div class="div_top_hypers">
-    <ul class="ul_top_hypers">
-        <li><a href="articles.html">Articles</a></li>
-        <li><a href="user.html">User</a></li>
-        <li><a href="login.html">Log in</a></li>
+<div class="navigation-bar">
+    <ul class="navigation-bar-list">
+        <li class="navigation-bar-list-member"><a class="navigation-btn" href="login.html">Login</a></li>
+        <li class="navigation-bar-list-member"><a class="navigation-btn" href="signup.html">Sign up</a></li>
+        <li class="navigation-bar-list-member"><a class="navigation-btn" href="articles.html">Home</a></li>
     </ul>
 </div>
 
-<div class="log">
-    <div class="header-user">
-        <h1>User Info</h1>
+<section class="block" id="block">
+    <div class="head">
+        <h1 class="company">Current user info</h1>
     </div>
-    <form>
-        <label for="username"></label>
-        <input class="input-field" type="text" id="username" value="ligma" placeholder="Username" required="required" pattern="[A-Za-z0-9]{1,20}"><br>
-        <label for="email"></label>
-        <input class="input-field" type="text" id="email" value="aaa@aaa.com" placeholder="Email" required="required" pattern="[A-Za-z0-9]{1,20}"><br>
-        <label for="first_name"></label>
-        <input class="input-field" type="text" id="first_name" value="Steve" placeholder="First name" required="required" pattern="[A-Za-z0-9]{1,20}"><br>
-        <label for="last_name"></label>
-        <input class="input-field" type="text" id="last_name" value="Jobs" placeholder="Last name" required="required" pattern="[A-Za-z0-9]{1,20}"><br>
-        <label for="password"></label>
-        <input class="input-field" type="password" id="password" value="qwerty" placeholder="Password" required="required" pattern="[A-Za-z0-9]{1,20}"><br><br>
-        <a class="reference-for-user" href="articles.html">Edit</a>
-        <a class="reference-for-user" href="login.html">Delete</a>
-        <a class="reference-for-user" href="login.html">Logout</a>
-    </form>
-</div>
+    <div class="form">
+        <form>
+            <label for="username"></label>
+            <input class="input" type="text" id="username" value="ligma" placeholder="Username" required>
+            <br>
+            <label for="email"></label>
+            <input class="input" type="text" id="email" value="aaa@aaa.com" placeholder="Email" required>
+            <br>
+            <label for="first_name"></label>
+            <input class="input" type="text" id="first_name" value="Steve" placeholder="First name" required>
+            <br>
+            <label for="last_name"></label>
+            <input class="input" type="text" id="last_name" value="Jobs" placeholder="Last name" required>
+            <br>
+            <label for="password"></label>
+            <input class="input" type="password" id="password" value="qwerty" placeholder="Password" required>
+            <br>
+            <a class="btn-login" href="articles.html">Edit</a>
+            <a class="btn-login" href="login.html">Delete</a>
+            <a class="btn-login" href="login.html">Logout</a>
+        </form>
+    </div>
+</section>
 </body>
 </html>
