@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import Reference from "../../UI/reference/Reference";
 import Input from "../../UI/input/Input";
 import API from '../../API'
@@ -16,6 +16,12 @@ const LoginForm = () => {
 
     const navigate = useNavigate()
 
+    useEffect(() => {
+        setJwt('')
+        setUsername('')
+        setRole('')
+    }, [])
+
     const sendLoginRequest = (e) => {
         e.preventDefault()
         if (login === '' || password === '') {
@@ -23,16 +29,16 @@ const LoginForm = () => {
         } else {
             API.sendLoginRequest(login, password)
                 .then(res => {
-                    if (res.status === 200) {
-                        setJwt(res.data.jwt)
-                        setUsername(res.data.user.username)
-                        setRole(res.data.user.role)
-                        navigate('/user')
-                    } else {
-                        setError(true)
-                    }
+                    setError(false)
+                    setJwt(res.data.jwt)
+                    setUsername(res.data.user.username)
+                    setRole(res.data.user.role)
+                    navigate('/user')
                 })
-                .catch(err => console.error(err))
+                .catch(err => {
+                    setError(true)
+                    console.error(err)
+                })
         }
     }
 

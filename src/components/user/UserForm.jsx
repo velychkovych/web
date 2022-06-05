@@ -1,34 +1,49 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import Input from "../../UI/input/Input";
 import Button from "../../UI/button/Button";
 import {AuthContext} from "../../context";
 import API from "../../API";
 import SuccessBar from "../SuccessBar";
 import {useNavigate} from 'react-router-dom';
+import ErrorBar from "../ErrorBar";
 
 const UserForm = () => {
-    const {username, setUsername, role, setRole, jwt, setJwt} = useContext(AuthContext)
+    const {username, jwt} = useContext(AuthContext)
 
     const [firstName, setFirstName] = useState('')
     const [lastName, setLastName] = useState('')
+    const [password, setPassword] = useState('')
     const [editSuccess, setEditSuccess] = useState(false)
+    const [nameEmpty, setNameEmpty] = useState(false)
 
     const navigate = useNavigate()
 
+    useEffect(() => {
+        if(username === '' || jwt === '') {
+            navigate('/login')
+        }
+    },[])
+
     const editUser = (e) => {
-        e.preventDefault()
-        API.sendEditUserRequest(jwt, username, firstName, lastName)
-            .then(_ => setEditSuccess(true))
-            .catch(err => console.log(err))
+        if (firstName === '' || lastName === '') {
+            setNameEmpty(true)
+        } else {
+            setNameEmpty(false)
+            e.preventDefault()
+            let body = {firstName, lastName};
+            if (password !== '') {
+                body = {...body, password}
+            }
+            API.sendEditUserRequest(jwt, username, body)
+                .then(_ => setEditSuccess(true))
+                .catch(err => console.log(err))
+        }
     }
 
     const deleteUser = (e) => {
         e.preventDefault()
         API.sendDeleteUserRequest(jwt, username)
             .then(_ => {
-                setUsername('')
-                setRole('')
-                setJwt('')
                 navigate('/login')
             })
             .catch(err => console.log(err))
@@ -36,9 +51,6 @@ const UserForm = () => {
 
     const logout = (e) => {
         e.preventDefault()
-        setUsername('')
-        setRole('')
-        setJwt('')
         navigate('/login')
     }
 
@@ -46,17 +58,10 @@ const UserForm = () => {
         <div className="form">
             <form>
                 <Input
+                    disabled
                     type="text"
                     placeholder="Username"
                     value={username}
-                    onChange={e => setUsername(e.target.value)}
-                    required
-                />
-                <Input
-                    type="email"
-                    placeholder="Email"
-                    value={username}
-                    required
                 />
                 <Input
                     type="text"
@@ -75,7 +80,8 @@ const UserForm = () => {
                 <Input
                     type="password"
                     placeholder="Password"
-                    value="*******"
+                    value={password}
+                    onChange={e => setPassword(e.target.value)}
                     required
                 />
                 <Button onClick={editUser}>Edit</Button>
@@ -84,6 +90,8 @@ const UserForm = () => {
             </form>
             {editSuccess ?
                 <SuccessBar>User edited successfully</SuccessBar> : <div/>}
+            {nameEmpty ?
+                <ErrorBar>First and last name field should not be empty</ErrorBar> : <div/>}
         </div>
     );
 }
