@@ -79,7 +79,7 @@ body {
       background-color: darkturquoise;
       border-radius: 5px;
       font-size: 120%; }
-  .block .form .input {
+  .block .form .input-enabled {
     border: none;
     background: none;
     box-shadow: 0 2px 0 0 white;
@@ -89,7 +89,19 @@ body {
     outline: none;
     margin-top: 20px;
     margin-bottom: 20px; }
-    .block .form .input::placeholder {
+    .block .form .input-enabled::placeholder {
+      color: #D3D3D3; }
+  .block .form .input-disabled {
+    border: none;
+    background: none;
+    box-shadow: 0 2px 0 0 white;
+    width: 100%;
+    color: #b2adad;
+    font-size: 1em;
+    outline: none;
+    margin-top: 20px;
+    margin-bottom: 20px; }
+    .block .form .input-disabled::placeholder {
       color: #D3D3D3; }
   .block .form .btn-login {
     background: none;
