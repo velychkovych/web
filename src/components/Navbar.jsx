@@ -4,7 +4,7 @@ import '../styles/styles.css'
 import {AuthContext} from "../context";
 
 const Navbar = () => {
-    const {role} = useContext(AuthContext)
+    const {jwt, role} = useContext(AuthContext)
 
     return (
         <div className="navigation-bar">
@@ -15,9 +15,11 @@ const Navbar = () => {
                 <li className="navigation-bar-list-member">
                     <Link className="navigation-btn" to="/signup">Sign up</Link>
                 </li>
-                <li className="navigation-bar-list-member">
-                    <Link className="navigation-btn" to="/user">User info</Link>
-                </li>
+                {
+                    jwt !== '' ? <li className="navigation-bar-list-member">
+                        <Link className="navigation-btn" to="/user">User info</Link>
+                    </li> : <li/>
+                }
                 {role === 'admin' ?
                     <li className="navigation-bar-list-member">
                         <Link className="navigation-btn" to="/users">User list</Link>
