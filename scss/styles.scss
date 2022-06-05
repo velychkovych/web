@@ -11,6 +11,24 @@
   padding: $padding;
 }
 
+@mixin input($color) {
+
+  border: none;
+  background: none;
+  box-shadow: 0 2px 0 0 white;
+  width: 100%;
+  color: $color;
+  font-size: 1em;
+  outline: none;
+  margin-top: 20px;
+  margin-bottom: 20px;
+
+  &::placeholder {
+    color: #D3D3D3;
+  }
+
+}
+
 body {
   background: #ABCDEF;
   font-family: Assistant, sans-serif;
@@ -121,20 +139,12 @@ body {
       }
     }
 
-    .input {
-      border: none;
-      background: none;
-      box-shadow: 0 2px 0 0 white;
-      width: 100%;
-      color: white;
-      font-size: 1em;
-      outline: none;
-      margin-top: 20px;
-      margin-bottom: 20px;
+    .input-enabled {
+      @include input(white);
+    }
 
-      &::placeholder {
-        color: #D3D3D3;
-      }
+    .input-disabled {
+      @include input(#b2adad);
     }
 
     .btn-login {
