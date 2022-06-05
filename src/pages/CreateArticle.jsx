@@ -1,25 +1,25 @@
 import React, {useContext, useEffect} from 'react';
-import '../styles/styles.css'
-import UserSection from "../components/user/UserSection";
+import CreateArticleSection from "../components/createarticle/CreateArticleSection";
 import {AuthContext} from "../context";
 import {useNavigate} from "react-router-dom";
+import '../styles/styles.css'
 
-const User = () => {
+const CreateArticle = () => {
     const {jwt} = useContext(AuthContext)
 
     const navigate = useNavigate()
 
     useEffect(() => {
-        if(jwt === ''){
-            navigate('/login')
+        if (jwt === '') {
+            navigate('/articles')
         }
     },[])
 
     return (
         <div className="body">
-            <UserSection/>
+            <CreateArticleSection/>
         </div>
     );
-}
+};
 
-export default User;
+export default CreateArticle;

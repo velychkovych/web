@@ -23,7 +23,7 @@ const UsersTable = () => {
                     console.error(err)
                 })
         }
-    }, [])
+    },[])
 
     return (
         <div>

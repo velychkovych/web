@@ -20,11 +20,23 @@ const Navbar = () => {
                         <Link className="navigation-btn" to="/user">User info</Link>
                     </li> : <li/>
                 }
-                {role === 'admin' ?
-                    <li className="navigation-bar-list-member">
-                        <Link className="navigation-btn" to="/users">User list</Link>
-                    </li> : <div/>
+                {
+                    role === 'admin' ?
+                        <li className="navigation-bar-list-member">
+                            <Link className="navigation-btn" to="/users">User list</Link>
+                        </li>
+                        : <div/>
                 }
+                {
+                    role === 'admin' ?
+                        <li className="navigation-bar-list-member">
+                            <Link className="navigation-btn" to="/articles/approve">Edited articles</Link>
+                        </li>
+                        : <div/>
+                }
+                <li className="navigation-bar-list-member">
+                    <Link className="navigation-btn" to="/articles">Articles</Link>
+                </li>
             </ul>
         </div>
     );

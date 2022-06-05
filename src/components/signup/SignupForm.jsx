@@ -22,7 +22,7 @@ const SignupForm = () => {
         setJwt('')
         setUsername('')
         setRole('')
-    }, [])
+    },[])
 
     const sendSignupRequest = () => {
         if (password === confirmPassword &&

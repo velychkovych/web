@@ -1,25 +1,25 @@
 import React, {useContext, useEffect} from 'react';
-import '../styles/styles.css'
-import UsersSection from "../components/users/UsersSection";
 import {AuthContext} from "../context";
 import {useNavigate} from "react-router-dom";
+import '../styles/styles.css'
+import EditArticleSection from "../components/editarticle/EditArticleSection";
 
-const Users = () => {
+const EditArticle = () => {
     const {role} = useContext(AuthContext)
 
     const navigate = useNavigate()
 
     useEffect(() => {
-        if(role !== 'admin'){
-            navigate('/user')
+        if (role !== 'admin') {
+            navigate('/articles')
         }
     },[])
 
     return (
         <div className="body">
-            <UsersSection/>
+            <EditArticleSection/>
         </div>
     );
-}
+};
 
-export default Users;
+export default EditArticle;
