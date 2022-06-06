@@ -2,4 +2,6 @@
     text-decoration: none;
     color: white;
     float: right;
+    border: 0;
+    background-color: #136a8a;
 }

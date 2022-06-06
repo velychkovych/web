@@ -10,10 +10,10 @@ const User = () => {
     const navigate = useNavigate()
 
     useEffect(() => {
-        if(jwt === ''){
+        if (jwt === '') {
             navigate('/login')
         }
-    },[])
+    }, [])
 
     return (
         <div className="body">

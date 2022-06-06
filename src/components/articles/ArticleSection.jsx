@@ -32,7 +32,7 @@ const ArticleSection = () => {
             {articles.length ?
                 <Header>Articles</Header> : <Header>No articles found</Header>
             }
-            <div className="form">
+            <div data-testid="list" className="form">
                 {articles.length ?
                     articles.map(article => <Article value={{
                         header: article.header,
