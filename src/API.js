@@ -18,7 +18,7 @@ const API = {
                 headers: {Authorization: `Bearer ${jwt}`}
             }),
     getAllUsers: (jwt) =>
-        axios.get('users', {headers: {Authorization: `Bearer ${jwt}`}})
+        axios.get('/users', {headers: {Authorization: `Bearer ${jwt}`}})
 }
 
 export default API;
