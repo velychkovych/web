@@ -26,26 +26,26 @@ function sendRequest(method, url, jwt = null, body = null) {
     });
 }
 
-const requestURL = 'http://localhost:3000';
+const requestURL = 'http://localhost:8000/api/v1';
 
 const loginAndSignupBody = {
     username: "velychkovych",
     password: "qwerty"
 }
 
-const jwt = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InZlbHljaGtvdnljaCIsImlhdCI6MTY1NDExMjE4MH0.ZqWi2uxEcFrJdxZm8KILwfkVoJqfd0VYP6biZY2xtRc";
 
 sendRequest('POST', `${requestURL}/signup`, null, loginAndSignupBody)
-    .then(res => console.log(res))
-    .catch(err => console.log(err))
-
-sendRequest('POST', `${requestURL}/login`, null, loginAndSignupBody)
-    .then(res => console.log(res))
+    .then(res => {
+        console.log(res)
+        return sendRequest('POST', `${requestURL}/login`, null, loginAndSignupBody)
+    })
+    .then(res => {
+        console.log(res)
+        return sendRequest('GET', `${requestURL}/users`, res.jwt, null)
+    })
+    .then(users => console.log(users))
     .catch(err => console.log(err));
 
-sendRequest('GET', `${requestURL}/users`, jwt, null)
-    .then(users => console.log(users))
-    .catch(err => console.log(err))
 
 
 
