@@ -1,8 +1,12 @@
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import Button from "../../UI/button/Button";
 import {useNavigate} from "react-router-dom";
+import {AuthContext} from "../../context";
+
 
 const Article = ({value, ...props}) => {
+    const {jwt} = useContext(AuthContext)
+
     const [body, setBody] = useState('')
     const [author, setAuthor] = useState('')
     const [header, setHeader] = useState('')
@@ -25,7 +29,10 @@ const Article = ({value, ...props}) => {
             <h1>{header}</h1>
             <p className="author">Author: {author}</p>
             <p>{body}</p>
-            <Button onClick={editArticle}>Edit</Button>
+            {
+                jwt !== '' ?
+                    <Button onClick={editArticle}>Edit</Button> : <div/>
+            }
         </div>
     );
 };

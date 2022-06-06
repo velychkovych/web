@@ -1,6 +1,5 @@
 import React, {useContext, useEffect, useState} from 'react';
 import Button from "../../UI/button/Button";
-import {useNavigate} from "react-router-dom";
 import API from "../../API";
 import {AuthContext} from "../../context";
 
@@ -10,8 +9,6 @@ const Article = ({value, ...props}) => {
     const [body, setBody] = useState('')
     const [author, setAuthor] = useState('')
     const [header, setHeader] = useState('')
-
-    const navigate = useNavigate()
 
     useEffect(() => {
         setHeader(value.header)

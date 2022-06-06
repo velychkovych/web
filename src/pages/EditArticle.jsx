@@ -5,12 +5,12 @@ import '../styles/styles.css'
 import EditArticleSection from "../components/editarticle/EditArticleSection";
 
 const EditArticle = () => {
-    const {role} = useContext(AuthContext)
+    const {jwt} = useContext(AuthContext)
 
     const navigate = useNavigate()
 
     useEffect(() => {
-        if (role !== 'admin') {
+        if (jwt === 'admin') {
             navigate('/articles')
         }
     },[])

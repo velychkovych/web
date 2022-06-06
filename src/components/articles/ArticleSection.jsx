@@ -1,11 +1,14 @@
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import Header from "../Header";
 import Article from "./Article";
 import API from "../../API";
 import Button from "../../UI/button/Button";
 import {useNavigate} from "react-router-dom";
+import {AuthContext} from "../../context";
 
 const ArticleSection = () => {
+    const {jwt} = useContext(AuthContext)
+
     const [articles, setArticles] = useState([])
 
     const navigate = useNavigate()
@@ -17,7 +20,7 @@ const ArticleSection = () => {
                 setArticles(res.data)
             })
             .catch(err => console.log(err))
-    },[])
+    }, [])
 
     const redirectToCreatePost = (e) => {
         e.preventDefault()
@@ -38,7 +41,10 @@ const ArticleSection = () => {
                     }}/>) : <div/>
                 }
             </div>
-            <Button onClick={redirectToCreatePost}>Add new post</Button>
+            {
+                jwt !== '' ?
+                    <Button onClick={redirectToCreatePost}>Add new post</Button> : <div/>
+            }
         </section>
     );
 };
